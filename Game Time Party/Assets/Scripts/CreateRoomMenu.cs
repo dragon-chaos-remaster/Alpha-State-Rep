@@ -29,12 +29,12 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("Created room successfully", this);
-        base.OnCreatedRoom();
+        
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("Creation of the room failed " + message, this);
-        base.OnCreateRoomFailed(returnCode, message);
+        
     }
 
 }
