@@ -35,7 +35,7 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("Created room successfully", this);
-        roomCanvases.CurrentRoomCanvas.Show();
+        roomCanvases.SpecialEffectsCanvas.StartFadeIn();
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
