@@ -2672,12 +2672,12 @@ namespace Photon.Realtime
                         break;
                     }
 
-                    List<RoomInfo> _RoomInfoList = new List<RoomInfo>();
+                    List<Player> _RoomInfoList = new List<Player>();
 
                     Hashtable games = (Hashtable)operationResponse[ParameterCode.GameList];
                     foreach (string gameName in games.Keys)
                     {
-                        _RoomInfoList.Add(new RoomInfo(gameName, (Hashtable)games[gameName]));
+                        _RoomInfoList.Add(new Player(gameName, (Hashtable)games[gameName]));
                     }
 
                     this.LobbyCallbackTargets.OnRoomListUpdate(_RoomInfoList);
@@ -2971,12 +2971,12 @@ namespace Photon.Realtime
                 case EventCode.GameList:
                 case EventCode.GameListUpdate:
 
-                    List<RoomInfo> _RoomInfoList = new List<RoomInfo>();
+                    List<Player> _RoomInfoList = new List<Player>();
 
                     Hashtable games = (Hashtable)photonEvent[ParameterCode.GameList];
                     foreach (string gameName in games.Keys)
                     {
-                        _RoomInfoList.Add(new RoomInfo(gameName, (Hashtable)games[gameName]));
+                        _RoomInfoList.Add(new Player(gameName, (Hashtable)games[gameName]));
                     }
 
                     this.LobbyCallbackTargets.OnRoomListUpdate(_RoomInfoList);
@@ -3480,7 +3480,7 @@ namespace Photon.Realtime
         /// Each item is a RoomInfo which might include custom properties (provided you defined those as lobby-listed when creating a room).
         /// Not all types of lobbies provide a listing of rooms to the client. Some are silent and specialized for server-side matchmaking.
         /// </remarks>
-        void OnRoomListUpdate(List<RoomInfo> roomList);
+        void OnRoomListUpdate(List<Player> roomList);
 
         /// <summary>
         /// Called when the Master Server sent an update for the Lobby Statistics.
@@ -4085,7 +4085,7 @@ namespace Photon.Realtime
             }
         }
 
-        public void OnRoomListUpdate(List<RoomInfo> roomList)
+        public void OnRoomListUpdate(List<Player> roomList)
         {
             this.client.UpdateCallbackTargets();
 

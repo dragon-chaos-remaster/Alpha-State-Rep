@@ -6,11 +6,12 @@ using Photon.Realtime;
 public class PlayerListing : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
-    
-    public Player RoomInfo { get; private set; }
-    public void SetRoom(Player roomInfo)
+
+    //public RoomInfo RoomInfo { get; private set; }
+    [SerializeField] Player player;
+    public void SetPlayerInfo(Player player)
     {
-        RoomInfo = roomInfo;
-        text.text = roomInfo.MaxPlayers + ", " + roomInfo.Name;
+        this.player = player;
+        text.text = player.NickName;
     }
 }

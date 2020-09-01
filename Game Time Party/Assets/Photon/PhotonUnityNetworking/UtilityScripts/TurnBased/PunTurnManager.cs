@@ -364,7 +364,7 @@ namespace Photon.Pun.UtilityScripts
         /// </summary>
         /// <returns>The turn index </returns>
         /// <param name="room">RoomInfo reference</param>
-        public static int GetTurn(this RoomInfo room)
+        public static int GetTurn(this Player room)
         {
             if (room == null || room.CustomProperties == null || !room.CustomProperties.ContainsKey(TurnPropKey))
             {
@@ -380,7 +380,7 @@ namespace Photon.Pun.UtilityScripts
         /// </summary>
         /// <returns>The turn start.</returns>
         /// <param name="room">Room.</param>
-        public static int GetTurnStart(this RoomInfo room)
+        public static int GetTurnStart(this Player room)
         {
             if (room == null || room.CustomProperties == null || !room.CustomProperties.ContainsKey(TurnStartPropKey))
             {

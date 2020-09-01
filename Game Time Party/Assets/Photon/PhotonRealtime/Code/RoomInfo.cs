@@ -33,7 +33,7 @@ namespace Photon.Realtime
     /// This class resembles info about available rooms, as sent by the Master server's lobby.
     /// Consider all values as readonly. None are synced (only updated by events by server).
     /// </remarks>
-    public class RoomInfo
+    public class Player
     {
         /// <summary>Used in lobby, to mark rooms that are no longer listed (for being full, closed or hidden).</summary>
         public bool RemovedFromList;
@@ -154,7 +154,7 @@ namespace Photon.Realtime
         /// </summary>
         /// <param name="roomName">Name of the room and unique ID at the same time.</param>
         /// <param name="roomProperties">Properties for this room.</param>
-        protected internal RoomInfo(string roomName, Hashtable roomProperties)
+        protected internal Player(string roomName, Hashtable roomProperties)
         {
             this.InternalCacheProperties(roomProperties);
 
@@ -166,7 +166,7 @@ namespace Photon.Realtime
         /// </summary>
         public override bool Equals(object other)
         {
-            RoomInfo otherRoomInfo = other as RoomInfo;
+            Player otherRoomInfo = other as Player;
             return (otherRoomInfo != null && this.Name.Equals(otherRoomInfo.name));
         }
 

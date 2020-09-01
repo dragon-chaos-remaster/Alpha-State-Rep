@@ -37,7 +37,7 @@ namespace Photon.Realtime
     ///
     /// Typically, this class should be extended by a game-specific implementation with logic and extra features.
     /// </remarks>
-    public class Room : RoomInfo
+    public class Room : Player
     {
         /// <summary>
         /// A reference to the LoadBalancingClient which is currently keeping the connection and state.
